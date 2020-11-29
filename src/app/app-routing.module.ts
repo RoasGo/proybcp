@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ConfigGeneralComponent } from './components/config-general/config-general.component';
+import { ConfigNotificacionesComponent } from './components/config-notificaciones/config-notificaciones.component';
 import { ConfigComponent } from './components/config/config.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
@@ -25,7 +27,14 @@ const routes: Routes = [
       { path: '', component: HomeComponent },
       { path: 'home', component: HomeComponent },
       { path: 'transfer', component: TransferComponent },
-      { path: 'config', component: ConfigComponent }
+      { 
+        path: 'config', 
+        component: ConfigComponent,
+        children: [
+          { path: 'general', component: ConfigGeneralComponent },
+          { path: 'notificaciones', component: ConfigNotificacionesComponent }
+        ]
+      }
     ]
   },
   { path: '**', pathMatch: 'full', redirectTo: '/login' }

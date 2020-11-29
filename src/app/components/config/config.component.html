@@ -1,34 +1,17 @@
 <h2>Configuración</h2>
 <div class="config_container">
     <div class="cabecera">
-        <div class="config_title">General</div>
+        <div 
+            [routerLink]="['general']"
+            routerLinkActive="active"
+            class="config_title">General</div>
         <div class="config_title">Cuenta</div>
-        <div class="config_title active">Notificaciones</div>
+        <div 
+            [routerLink]="['notificaciones']"
+            routerLinkActive="active"
+            class="config_title">Notificaciones</div>
     </div>
     <div class="config_list">
-        <div class="config">
-            <div class="config_detail">
-                <div class="config_icon">
-                    <i class='bx bx-sort-alt-2 bx-rotate-90'></i>
-                </div>
-                <div class="config_description">Transferencias</div>
-            </div>
-            <div class="config_action">
-                <input type="checkbox" hidden="hidden" id="transfer" checked>
-                <label class="switch" for="transfer"></label>
-            </div>
-        </div>
-        <div class="config">
-            <div class="config_detail">
-                <div class="config_icon">
-                    <i class='bx bxs-offer'></i>
-                </div>
-                <div class="config_description">Ofertas</div>
-            </div>
-            <div class="config_action">
-                <input type="checkbox" hidden="hidden" id="oferta">
-                <label class="switch" for="oferta"></label>
-            </div>
-        </div>
+        <router-outlet></router-outlet>
     </div>
 </div>

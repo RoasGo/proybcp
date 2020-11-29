@@ -15,6 +15,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { TransferComponent } from './components/transfer/transfer.component';
+import { ConfigGeneralComponent } from './components/config-general/config-general.component';
+import { ConfigNotificacionesComponent } from './components/config-notificaciones/config-notificaciones.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { TransferComponent } from './components/transfer/transfer.component';
     DashboardComponent,
     RegistroComponent,
     LoginPageComponent,
-    TransferComponent
+    TransferComponent,
+    ConfigGeneralComponent,
+    ConfigNotificacionesComponent
   ],
   imports: [
     BrowserModule,
