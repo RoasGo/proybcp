@@ -17,6 +17,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { TransferComponent } from './components/transfer/transfer.component';
 import { ConfigGeneralComponent } from './components/config-general/config-general.component';
 import { ConfigNotificacionesComponent } from './components/config-notificaciones/config-notificaciones.component';
+import { TransferDepositosComponent } from './components/transfer-depositos/transfer-depositos.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ConfigNotificacionesComponent } from './components/config-notificacione
     LoginPageComponent,
     TransferComponent,
     ConfigGeneralComponent,
-    ConfigNotificacionesComponent
+    ConfigNotificacionesComponent,
+    TransferDepositosComponent
   ],
   imports: [
     BrowserModule,

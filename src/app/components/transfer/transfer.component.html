@@ -1,80 +1,130 @@
-<h2>Transferencias</h2>
+<h2 class="tittle">Transferencias</h2>
 <div class="transfer-container">
-    <div class="cabecera">
-        <div class="hist_title">Historial</div>
-        <div class="action">
-            <i class='bx bxs-cog'></i>
+    
+    <div class="transfer-transac">
+        <ul class="transfer_opciones">
+            <li
+                [routerLink]="['deposito']"
+            >
+                <a>Realizar transferencias entre mis cuentas</a>
+            </li>
+            <li
+                [routerLink]="['deposito']"
+            >
+                <a>Realizar transferencias a terceros</a>
+            </li>
+            <li
+            
+            >
+                <a>Realizar transferencias a bancos inmediatos</a>
+            </li>
+        </ul>
+    
+        <div>
+            <h2>Frecuentes</h2>
+            <ul class="transfer_opciones">
+                <li
+                    [routerLink]="['deposito']"
+                >
+                    <h4>Gonzalo Roa</h4>
+                    <h6>191-15322-15321-452</h6>
+                </li>
+                <li
+                    [routerLink]="['deposito']"
+                >
+                    <h4>Gonzalo Roa</h4>
+                    <h6>191-15322-15321-452</h6>
+                </li>
+                <li
+                    [routerLink]="['deposito']"
+                >
+                    <h4>Gonzalo Roa</h4>
+                    <h6>191-15322-15321-452</h6>
+                </li>
+            </ul>
+        </div>
+        <div class="deposito">
+            <router-outlet></router-outlet>
         </div>
     </div>
-    <div class="trans_hist">
-        <span class="trans_hist_date">{{fecha | date}}</span>
-        <div class="transac">
-            <div class="transac_icon">
-                <i class='bx bx-sort-alt-2 bx-rotate-90'></i>
-            </div>
-            <div class="transac_detail">
-                <span>Mariano Saldarriaga</span>
-                <small class="transac_detail_date">{{fecha | date:'medium'}}</small>
-            </div>
-            <!--<div class="transac_moneda">
-                <i class='bx bx-dollar'></i>
-            </div>-->
-            <div class="transac_monto">
-                <h5>+ {{ 150.0 | currency:'USD'}}</h5>
+    
+    <div class="transfer-history">
+        <div class="cabecera">
+            <div class="hist_title">Historial</div>
+            <div class="action">
+                <i class='bx bxs-cog'></i>
             </div>
         </div>
-    </div>
-    <div class="trans_hist">
-        <span class="trans_hist_date">{{fecha | date}}</span>
-        <div class="transac">
-            <div class="transac_icon">
-                <i class='bx bx-sort-alt-2 bx-rotate-90'></i>
-            </div>
-            <div class="transac_detail">
-                <span>Viviana Sira</span>
-                <small class="transac_detail_date">{{fecha | date:'medium'}}</small>
-            </div>
-            <!--<div class="transac_moneda">
-                <i class='bx bx-dollar'></i>
-            </div>-->
-            <div class="transac_monto">
-                <h5>- {{ 50.0 | currency:'USD'}}</h5>
-            </div>
-        </div>
-    </div>
-    <div class="trans_hist">
-        <span class="trans_hist_date">{{fecha | date}}</span>
-        <div class="transac">
-            <div class="transac_icon">
-                <i class='bx bx-sort-alt-2 bx-rotate-90'></i>
-            </div>
-            <div class="transac_detail">
-                <span>Claudia Blas</span>
-                <small class="transac_detail_date">{{fecha | date:'medium'}}</small>
-            </div>
-            <!--<div class="transac_moneda">
-                <i class='bx bx-dollar'></i>
-            </div>-->
-            <div class="transac_monto">
-                <h5>+ {{ 550.0 | currency:'USD'}}</h5>
+        <div class="trans_hist">
+            <span class="trans_hist_date">{{fecha | date}}</span>
+            <div class="transac">
+                <div class="transac_icon">
+                    <i class='bx bx-sort-alt-2 bx-rotate-90'></i>
+                </div>
+                <div class="transac_detail">
+                    <span>Mariano Saldarriaga</span>
+                    <small class="transac_detail_date">{{fecha | date:'medium'}}</small>
+                </div>
+                <!--<div class="transac_moneda">
+                    <i class='bx bx-dollar'></i>
+                </div>-->
+                <div class="transac_monto">
+                    <h5>+ {{ 150.0 | currency:'USD'}}</h5>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="trans_hist">
-        <span class="trans_hist_date">{{fecha | date}}</span>
-        <div class="transac">
-            <div class="transac_icon">
-                <i class='bx bx-sort-alt-2 bx-rotate-90'></i>
+        <div class="trans_hist">
+            <span class="trans_hist_date">{{fecha | date}}</span>
+            <div class="transac">
+                <div class="transac_icon">
+                    <i class='bx bx-sort-alt-2 bx-rotate-90'></i>
+                </div>
+                <div class="transac_detail">
+                    <span>Viviana Sira</span>
+                    <small class="transac_detail_date">{{fecha | date:'medium'}}</small>
+                </div>
+                <!--<div class="transac_moneda">
+                    <i class='bx bx-dollar'></i>
+                </div>-->
+                <div class="transac_monto">
+                    <h5>- {{ 50.0 | currency:'USD'}}</h5>
+                </div>
             </div>
-            <div class="transac_detail">
-                <span>Jazmin Oyola</span>
-                <small class="transac_detail_date">{{fecha | date:'medium'}}</small>
+        </div>
+        <div class="trans_hist">
+            <span class="trans_hist_date">{{fecha | date}}</span>
+            <div class="transac">
+                <div class="transac_icon">
+                    <i class='bx bx-sort-alt-2 bx-rotate-90'></i>
+                </div>
+                <div class="transac_detail">
+                    <span>Claudia Blas</span>
+                    <small class="transac_detail_date">{{fecha | date:'medium'}}</small>
+                </div>
+                <!--<div class="transac_moneda">
+                    <i class='bx bx-dollar'></i>
+                </div>-->
+                <div class="transac_monto">
+                    <h5>+ {{ 550.0 | currency:'USD'}}</h5>
+                </div>
             </div>
-            <!--<div class="transac_moneda">
-                <i class='bx bx-dollar'></i>
-            </div>-->
-            <div class="transac_monto">
-                <h5>- {{ 250.0 | currency:'USD'}}</h5>
+        </div>
+        <div class="trans_hist">
+            <span class="trans_hist_date">{{fecha | date}}</span>
+            <div class="transac">
+                <div class="transac_icon">
+                    <i class='bx bx-sort-alt-2 bx-rotate-90'></i>
+                </div>
+                <div class="transac_detail">
+                    <span>Jazmin Oyola</span>
+                    <small class="transac_detail_date">{{fecha | date:'medium'}}</small>
+                </div>
+                <!--<div class="transac_moneda">
+                    <i class='bx bx-dollar'></i>
+                </div>-->
+                <div class="transac_monto">
+                    <h5>- {{ 250.0 | currency:'USD'}}</h5>
+                </div>
             </div>
         </div>
     </div>

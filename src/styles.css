@@ -54,11 +54,17 @@ a {
 }
 
 .btn-naranja {
-    background-color: var(--naranjaPrimary);
-    color: var(--blancoPrimary);
+    background-color: var(--colorNaranja);
+    color: var(--colorBlanco);
 }
 
 .btn-icono {
-    background-color: var(--azulPrimary);
-    color: var(--blancoPrimary);
+    background-color: var(--colorAzul);
+    color: var(--colorBlanco);
+}
+
+.btn-icono.outline {
+    background-color: var(--colorBlanco);
+    border: 1px solid var(--colorAzul);
+    color: var(--colorAzulOscuro);
 }

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   BASE_URL: {
-    
+    USUARIOS: 'http://localhost8080:/api'
   }
 };
 

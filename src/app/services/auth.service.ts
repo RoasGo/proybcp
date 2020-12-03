@@ -11,7 +11,7 @@ import { environment } from '../../environments/environment';
 export class AuthService {
 
   constructor(private http: HttpClient) { }
-
+  
   getEndpoint(api:string) {
     return `${environment.BASE_URL.USUARIOS}${api}`;
   }
