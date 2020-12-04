@@ -31,7 +31,7 @@
     background-color: var(--colorNaranja);
 }
 
-.form-deposito {
+.form-deposito, .resumen_transferencia {
     display: flex;
     flex-direction: column;
     width: 90%;
@@ -116,6 +116,11 @@ input:active {
 .action-buttons {
     margin-top: 6rem;
     transform: translateY(-3rem);
+    text-align: center;
+}
+
+.action-buttons input {
+    font-size: 16px;
 }
 
 .action-buttons a {
