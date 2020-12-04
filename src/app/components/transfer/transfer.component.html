@@ -2,8 +2,9 @@
 <div class="transfer-container">
     
     <div class="transfer-transac">
-        <ul class="transfer_opciones">
+        <ul class="transfer_opciones" *ngIf="!transf">
             <li
+                (click)="transf = !transf"
                 [routerLink]="['deposito']"
             >
                 <a>Realizar transferencias entre mis cuentas</a>
@@ -20,7 +21,7 @@
             </li>
         </ul>
     
-        <div>
+        <div *ngIf="!transf" >
             <h2>Frecuentes</h2>
             <ul class="transfer_opciones">
                 <li
@@ -43,8 +44,8 @@
                 </li>
             </ul>
         </div>
-        <div class="deposito">
-            <router-outlet></router-outlet>
+        <div class="deposito">        
+            <router-outlet></router-outlet> 
         </div>
     </div>
     

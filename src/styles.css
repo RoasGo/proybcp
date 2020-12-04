@@ -58,6 +58,10 @@ a {
     color: var(--colorBlanco);
 }
 
+.btn-naranja:hover {
+    background-color: #bd5a03;
+}
+
 .btn-icono {
     background-color: var(--colorAzul);
     color: var(--colorBlanco);

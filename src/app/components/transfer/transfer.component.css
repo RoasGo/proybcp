@@ -11,20 +11,13 @@
     top: 5px;
     left: 0;
     right: 0;
-    /* height: 100%; */
-    /* display: none; */
 }
 
 .transfer-transac {
     display: flex;
     width: 60%;
     flex-direction: column;
-    margin-left: 1rem;
     position: relative;
-}
-
-h2.tittle {
-    margin-left: 1rem;
 }
 
 .transfer-container {
