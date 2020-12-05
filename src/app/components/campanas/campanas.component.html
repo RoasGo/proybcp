@@ -1,0 +1,37 @@
+<p>campanas works!</p>
+
+
+<button mat-raised-button (click)="openDialog2()">Pick one</button>
+<!-- Trigger the modal with a button -->
+<!-- Trigger the modal with a button -->
+
+
+<table class="table">
+<tr>
+  <td>id</td>
+  <td>Titulo</td>
+  <td>Descripcion</td>
+  <td>Fecha</td>
+  <td>hora</td>
+  <td>Fecha Inicio</td>
+  <td>Fecha Fin</td>
+  <td>Usuario</td>
+  <td>eliminar</td>
+  <td>act</td>
+</tr>
+<tr *ngFor="let obj of data; let j=index">
+    <td >{{obj.cod_camp}}</td>
+    <td>{{obj.titulo}}</td>
+    <td>{{obj.descripcion}}</td>
+    <td>{{obj.fecha}}</td>
+    <td>{{obj.hora}}</td>
+    <td>{{obj.fech_fin}}</td>
+    <td>{{obj.fech_ini}}</td>
+
+    <td>{{obj.cod_usu}}</td>
+    <td><button type="button" (click)="eliminar(obj)"><i class="fas fa-trash-alt"></i></button>
+      <td><button type="button" (click)="openDialog(obj)"><i class="fas fa-trash-alt"></i></button>
+    </td>
+
+  </tr>
+</table>

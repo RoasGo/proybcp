@@ -1,0 +1,56 @@
+<div class="registro-container">
+
+  <form #frm="ngForm" (ngSubmit)="actualizar(frm.value)">
+      <h2>Actualizar Usuario</h2>
+
+      <div class="input-div user" hidden>
+        <div class="i">
+            <i class="fas fa-user"></i>
+        </div>
+        <div>
+            <h5>cod</h5>
+            <input  (focus)="onFocus($event)" (blur)="onBlur($event)"  type="text" class="input" name="cod_usu"   [(ngModel)]="data.cod_usu">
+        </div>
+    </div>
+      <div class="input-div user">
+          <div class="i">
+              <i class="fas fa-user"></i>
+          </div>
+          <div>
+              <h5>Nombres</h5>
+              <input  (focus)="onFocus($event)" (blur)="onBlur($event)"  type="text" class="input" name="nombre_usu"   [(ngModel)]="data.nombre_usu">
+          </div>
+      </div>
+      <div class="input-div user">
+          <div class="i">
+              <i class="fas fa-user"></i>
+          </div>
+          <div>
+              <h5>Apellidos</h5>
+              <input   (focus)="onFocus($event)" (blur)="onBlur($event)" type="text" class="input" name="apellido_usu"   [(ngModel)]="data.apellido_usu">
+          </div>
+      </div>
+      <div class="input-div user">
+          <div class="i">
+              <i class="fas fa-envelope"></i>
+          </div>
+          <div>
+              <h5>Usuario</h5>
+              <input (focus)="onFocus($event)" (blur)="onBlur($event)" type="text" class="input" name="username" [(ngModel)]="data.username">
+          </div>
+      </div>
+      <div class="input-div pwd">
+          <div class="i">
+              <i class="fas fa-lock"></i>
+          </div>
+          <div>
+              <h5>Clave</h5>
+              <input   (focus)="onFocus($event)" (blur)="onBlur($event)" (keyup)="onKeyUp($event)" id="pwd" type="password" class="input" name="password"  [(ngModel)]="data.password">
+              <i (click)="showPassword($event)" class="showpwd fas fa-eye"></i>
+          </div>
+      </div>
+      <input mat-button mat-dialog-close type="submit"  class="btn" value="Guardar">
+
+  </form>
+</div>
+

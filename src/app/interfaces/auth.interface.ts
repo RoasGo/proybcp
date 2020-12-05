@@ -3,3 +3,5 @@ export interface IAuth {
     clave: string;
     auth_provider_id: number;
 }
+
+

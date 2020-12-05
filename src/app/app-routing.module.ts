@@ -7,12 +7,15 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { TransferComponent } from './components/transfer/transfer.component';
+
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
+import { CampanasComponent } from './components/campanas/campanas.component';
 
 const routes: Routes = [
-  { 
-    path: '', 
+  {
+    path: '',
     component: LoginPageComponent,
     children: [
       { path: '', component: LoginComponent },
@@ -20,15 +23,17 @@ const routes: Routes = [
       { path: 'registro', component: RegistroComponent },
     ]
   },
-  { 
-    path: 'app', 
+  {
+    path: 'app',
     component: DashboardComponent,
     children: [
       { path: '', component: HomeComponent },
       { path: 'home', component: HomeComponent },
       { path: 'transfer', component: TransferComponent },
-      { 
-        path: 'config', 
+      { path: 'usuario', component: UsuarioComponent },
+      { path: 'campana', component: CampanasComponent },
+      {
+        path: 'config',
         component: ConfigComponent,
         children: [
           { path: 'general', component: ConfigGeneralComponent },

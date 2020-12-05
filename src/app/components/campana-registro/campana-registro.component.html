@@ -1,0 +1,76 @@
+<div class="registro-container">
+
+  <form #frm="ngForm" (ngSubmit)="saveapi(frm.value)">
+      <h2>Crear Campaña</h2>
+
+      <div class="input-div user">
+        <div class="i">
+            <i class="fas fa-user"></i>
+        </div>
+        <div>
+            <h5>Titulo</h5>
+            <input  (focus)="onFocus($event)" (blur)="onBlur($event)"  type="text" class="input" name="titulo"   [(ngModel)]="data.titulo">
+        </div>
+    </div>
+
+      <div class="input-div user">
+          <div class="i">
+              <i class="fas fa-user"></i>
+          </div>
+          <div>
+              <h5>Descripcion</h5>
+              <input  (focus)="onFocus($event)" (blur)="onBlur($event)"  type="text" class="input" name="descripcion"   [(ngModel)]="data.descripcion">
+          </div>
+      </div>
+      <div class="input-div user">
+          <div class="i">
+              <i class="fas fa-user"></i>
+          </div>
+          <div>
+              <h5>Fecha</h5>
+              <input   (focus)="onFocus($event)" (blur)="onBlur($event)" type="text" class="input" name="fecha"   [(ngModel)]="data.fecha">
+          </div>
+      </div>
+      <div class="input-div user">
+          <div class="i">
+              <i class="fas fa-envelope"></i>
+          </div>
+          <div>
+              <h5>Hora</h5>
+              <input (focus)="onFocus($event)" (blur)="onBlur($event)" type="text" class="input" name="hora" [(ngModel)]="data.hora">
+          </div>
+      </div>
+      <div class="input-div user">
+        <div class="i">
+            <i class="fas fa-user"></i>
+        </div>
+        <div>
+            <h5>Fecha Inicio</h5>
+            <input  (focus)="onFocus($event)" (blur)="onBlur($event)"  type="text" class="input" name="fech_ini"   [(ngModel)]="data.fech_ini">
+        </div>
+    </div>
+    <div class="input-div user">
+      <div class="i">
+          <i class="fas fa-user"></i>
+      </div>
+      <div>
+          <h5>Fecha Fin</h5>
+          <input  (focus)="onFocus($event)" (blur)="onBlur($event)"  type="text" class="input" name="fech_fin"   [(ngModel)]="data.fech_fin">
+      </div>
+     </div>
+     <div class="input-div user">
+      <div class="i">
+          <i class="fas fa-user"></i>
+      </div>
+      <div>
+          <h5>Usuario</h5>
+          <input  (focus)="onFocus($event)" (blur)="onBlur($event)"  type="text" class="input" name="cod_usu"   [(ngModel)]="data.cod_usu">
+      </div>
+     </div>
+
+
+      <input mat-button mat-dialog-close type="submit"  class="btn" value="Crear">
+
+  </form>
+</div>
+

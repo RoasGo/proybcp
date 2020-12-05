@@ -12,11 +12,5 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  getEndpoint(api:string) {
-    return `${environment.BASE_URL.USUARIOS}${api}`;
-  }
 
-  login(user:IAuth) {
-    return this.http.post(this.getEndpoint('auth'), user);
-  }
 }

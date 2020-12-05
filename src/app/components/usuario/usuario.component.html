@@ -1,0 +1,32 @@
+
+<p>usuario </p>
+
+
+<button class="btn btn-primary btn-lg active" mat-raised-button (click)="openDialog2()">Agregar</button>
+<!-- Trigger the modal with a button -->
+<!-- Trigger the modal with a button -->
+
+
+<table class="table">
+<tr>
+  <td hidden >id</td>
+  <td>Nombre</td>
+  <td>Apellidos</td>
+  <td>Usuario</td>
+  <td></td>
+
+</tr>
+<tr *ngFor="let obj of data; let j=index">
+   <td hidden >{{obj.cod_usu}}</td>
+    <td>{{obj.nombre_usu}}</td>
+    <td>{{obj.apellido_usu}}</td>
+
+    <td>{{obj.username}}</td>
+    <td><button style="border:none;background:none" (click)="eliminar(obj)"><i class="fas fa-trash-alt"></i></button> </td>
+      <td><button style="border:none;background:none" (click)="openDialog(obj)"><i class="fas fa-edit"></i></button>
+    </td>
+
+  </tr>
+</table>
+
+

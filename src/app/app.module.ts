@@ -18,6 +18,21 @@ import { TransferComponent } from './components/transfer/transfer.component';
 import { ConfigGeneralComponent } from './components/config-general/config-general.component';
 import { ConfigNotificacionesComponent } from './components/config-notificaciones/config-notificaciones.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+
+import { UsuarioComponent } from './components/usuario/usuario.component';
+
+import { RegistroUsuarioComponent } from './components/registro-usuario/registro-usuario.component';
+import { FormsModule } from '@angular/forms';
+import { UsuarioService } from './services/usuario.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UsuarioActualizarComponent } from './components/usuario-actualizar/usuario-actualizar.component';
+import { CampanasComponent } from './components/campanas/campanas.component';
+import { CampanaRegistroComponent } from './components/campana-registro/campana-registro.component';
+import { CampanaActulizarComponent } from './components/campana-actulizar/campana-actulizar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,14 +46,36 @@ import { ConfigNotificacionesComponent } from './components/config-notificacione
     LoginPageComponent,
     TransferComponent,
     ConfigGeneralComponent,
-    ConfigNotificacionesComponent
+    ConfigNotificacionesComponent,
+    UsuarioComponent,
+
+
+    RegistroUsuarioComponent,
+
+
+    UsuarioActualizarComponent,
+
+
+    CampanasComponent,
+
+
+    CampanaRegistroComponent,
+
+
+    CampanaActulizarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatDialogModule,
+    FormsModule,
+    NgbModule
+
   ],
-  providers: [AuthService],
+  providers: [AuthService, UsuarioService, UsuarioComponent, CampanasComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
