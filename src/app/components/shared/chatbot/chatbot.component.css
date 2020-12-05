@@ -1,7 +1,7 @@
-:host {
+.bx.bx-bell {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 40px;
+    right: 40px;
     height: 60px;
     width: 60px;
     background-color: var(--colorAzul);
@@ -14,4 +14,10 @@
     box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.75);
     font-size: 1.8rem;
     cursor: pointer;
+    z-index: 5;
+}
+
+.bx.bx-bell:hover {
+    background-color: var(--colorAzulOscuro);
+    color: var(--colorNaranja)
 }

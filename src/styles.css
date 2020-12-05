@@ -72,3 +72,7 @@ a {
     border: 1px solid var(--colorAzul);
     color: var(--colorAzulOscuro);
 }
+
+.btn-icono.outline:hover {
+    background-color: rgba(153, 153, 153, 0.062);
+}

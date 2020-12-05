@@ -42,12 +42,13 @@
     padding: .3rem;
     border: 1px solid var(--colorGris);
     outline: none;
+    width: 100%;
 }
 
 .caja_input {
     border: 1px solid var(--colorGris);
     background-color: #fff;
-    padding: .3rem;
+    padding: .8rem;
     margin-top: -3px;
     border-radius: 5px;
 }

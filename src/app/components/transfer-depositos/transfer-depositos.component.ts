@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransferDepositosComponent implements OnInit {
 
+  transf:Boolean = false;
+  resumen:Boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
