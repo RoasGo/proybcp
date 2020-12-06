@@ -12,9 +12,9 @@ export class SidebarComponent implements OnInit {
   
   @Output() navFlag:EventEmitter<boolean>;
 
-  userName: string = "Hector Roa Castillo ASDASD";
+  userName: string = "Gonzalo Roa Castillo";
 
-  userEmail: string = "hroa.castillo@gmail.com";
+  userEmail: string = "roasgo@hotmail.com";
 
   constructor(private router: Router) { 
     this.navFlag = new EventEmitter();
@@ -44,7 +44,7 @@ export class SidebarComponent implements OnInit {
   }
 
   logout() {
-    localStorage.setItem('clientes', '');
+    localStorage.clear();
     this.router.navigate(['/login']);
   }
 

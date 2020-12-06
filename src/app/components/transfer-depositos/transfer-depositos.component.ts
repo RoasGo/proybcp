@@ -6,7 +6,9 @@ import { CuentaBancaria } from 'src/app/models/cuentas.bancarias';
 import { AuthService } from 'src/app/services/auth.service';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { TransferenciaService } from 'src/app/services/transferencia.service';
+import { NotificacionService } from 'src/app/services/notificacion.service';
 import { Transferencia } from 'src/app/models/transferencia.model';
+import { Notificacion } from 'src/app/models/notificacion.model';
 
 @Component({
   selector: 'app-transfer-depositos',
@@ -21,12 +23,15 @@ export class TransferDepositosComponent implements OnInit {
 
   cuentaOrigen: CuentaBancaria = new CuentaBancaria();
   cuentaDestino: CuentaBancaria = new CuentaBancaria();
+
+  notificacion: Notificacion = new Notificacion();
   numeroCuenta: string;
+
   cliente: cliente;
   clienteDestino: cliente;
   cuentasBancarias: CuentaBancaria[]
   transferenciaData: Transferencia = new Transferencia();
-  constructor(private authService: AuthService, private clienteService: ClienteService, private router: Router, private tranferenciaService: TransferenciaService) {
+  constructor(private authService: AuthService, private clienteService: ClienteService, private router: Router, private tranferenciaService: TransferenciaService, private notificacionService: NotificacionService) {
     if ( authService.getCliente() !== null ) {
       
       this.cliente = JSON.parse( authService.getCliente() );
@@ -78,7 +83,7 @@ export class TransferDepositosComponent implements OnInit {
               (err) => {
                 console.log(err);
               }
-            );      
+            );    
       
     }
     
@@ -95,6 +100,26 @@ export class TransferDepositosComponent implements OnInit {
                 (data) => {
                   this.resumen = false;
                   this.confirmacion = true;
+
+                  this.notificacion.titulo = "Transferencia realizada con éxito!";
+                  this.notificacion.estado = 0;
+                  this.notificacion.descripcion = `El monto transferido fue de ${this.transferenciaData.monto}`;
+                  this.notificacion.fecha = this.transferenciaData.fecha;
+                  this.notificacion.hora = this.transferenciaData.hora;
+                  this.notificacion.cod_tipo = { "cod_tipo": 2 };
+                  this.notificacionService.generarNotificacion(this.notificacion)
+                        .subscribe(
+                          (data) => {
+                            console.log("TODO OKAY");
+                            
+                          }, 
+                          (err) => {
+                            console.log(`Error ${err}`);
+                            
+                          }
+                        );
+                
+                  
                 }, 
                 (err) => {
                   console.log("Error");
