@@ -19,6 +19,7 @@ import { TransferComponent } from './components/transfer/transfer.component';
 import { ConfigGeneralComponent } from './components/config-general/config-general.component';
 import { ConfigNotificacionesComponent } from './components/config-notificaciones/config-notificaciones.component';
 import { TransferDepositosComponent } from './components/transfer-depositos/transfer-depositos.component';
+import { TransferResumenOpeComponent } from './transfer-resumen-ope/transfer-resumen-ope.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { TransferDepositosComponent } from './components/transfer-depositos/tran
     TransferComponent,
     ConfigGeneralComponent,
     ConfigNotificacionesComponent,
-    TransferDepositosComponent
+    TransferDepositosComponent,
+    TransferResumenOpeComponent
   ],
   imports: [
     BrowserModule,

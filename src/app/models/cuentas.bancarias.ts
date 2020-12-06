@@ -4,6 +4,5 @@ export class CuentaBancaria {
     saldo: number;
     tarjeta: string;
     cod_tipo: any;
-    cod_cliente: number;
-
+    codCli: any;
 }

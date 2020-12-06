@@ -44,6 +44,7 @@ export class SidebarComponent implements OnInit {
   }
 
   logout() {
+    localStorage.setItem('clientes', '');
     this.router.navigate(['/login']);
   }
 

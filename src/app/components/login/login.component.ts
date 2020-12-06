@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { AuthModel } from 'src/app/models/auth.model';
 import { cliente } from 'src/app/interfaces/cliente.interface';
 
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -85,7 +86,11 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("cliente", JSON.stringify(this.cliente));
           this.router.navigateByUrl("/app/home");
         } else {
-          console.log("ERROR AL AUTENTICAR")
+          Swal.fire({
+            title: 'Error al autenticar, ingrese un dni correcto',
+            icon: 'warning',
+            confirmButtonText: 'Ok'
+          });
         }
 
       }, (err) => console.log(err)

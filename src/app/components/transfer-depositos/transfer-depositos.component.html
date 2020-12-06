@@ -4,25 +4,31 @@
             <a href="#" class="active">1</a>
         </li>
         <li>
-            <a href="#">2</a>
+            <a href="#" [ngClass]="{'active': transf}">2</a>
         </li>
         <li>
-            <a href="#">3</a>
+            <a href="#" [ngClass]="{'active': confirmacion}">3</a>
         </li>
     </ul>
 
-    <form action="" class="form-deposito">
+    <form #transfe="ngForm" (ngSubmit) = "realizarTransferencia(transfe)" class="form-deposito">
         
         <div *ngIf="!transf" >
-            <select name="" id="">
+            <select name="cod_cuenta" id="cuentas" [(ngModel)]="transferenciaData.codCuenta">
                 <option value="">Cuenta de origen</option>
-                <option value="">191-91842702-0-04</option>
-                <option value="">194-91842702-0-15</option>
+                <option 
+                    *ngFor="let numero of cuentasBancarias" 
+                    [value]="numero.cod_cuenta"
+                >
+                    {{ numero.numCuenta }}
+                </option>
             </select>
             <div class="caja_input">
                 <h5>Cuentas de ahorro</h5>
                 <div>
-                    <span class="cuentas">191-91842702-0-04</span>
+                    <span class="cuentas">
+                        
+                    </span>
                     <span class="end">$1,309.91</span>
                 </div>
             </div>
@@ -30,54 +36,66 @@
             <div class="caja_input  mt-2">
                 <h5>Monto</h5>
                 <div class="caja_input_content">
-                    <input type="number" value="500">
+                    <input 
+                        [(ngModel)]="transferenciaData.monto" 
+                        type="number"
+                        name="monto"
+                    >
                 </div>
             </div>
     
             <div class="caja_input  mt-2">
                 <h5>Cuenta destino</h5>
                 <div>
-                    <input type="number" value="194-91842702-0-15" class="w-80">
+                    <input 
+                        type="text" 
+                        [(ngModel)] = numeroCuenta
+                        class="w-80"
+                        name="numeroCuenta"
+                    >
                     <span class="boton"> Cancelar </span>
                 </div>
             </div>
             <div class="caja_input mt-2">
                 <h5>Descripcion(opcional)</h5>
                 <div>
-                    <textarea name="" rows="3"></textarea>
+                    <textarea name="descripcion" rows="3" [(ngModel)]="transferenciaData.descripcion"></textarea>
                 </div>
             </div>
             <div class="caja_input">
                 <h5>E-mail destinatario(opcional)</h5>
                 <div>
-                    <input type="text" value="194-91842702-0-15">
+                    <input 
+                        type="text" 
+                        placeholder="Ingrese correo"
+                    >
                 </div>
             </div>
             <div class="action-buttons">
                 <a class="btn btn-icono outline">Cancelar</a>
-                <a class="btn btn-naranja" (click)="transf = !transf" >Continuar</a>
+                <a class="btn btn-naranja" (click)="verificarDatos()" >Continuar</a>
             </div>
         </div>
         
-        <div *ngIf="transf">
+        <div *ngIf="resumen">
             <div class="caja_input">
                 <h5>Cuentas de origen</h5>
                 <div>
                     <h4>Cuenta de ahorro</h4>
-                    <h5>191-91842702-0-04</h5>
+                    <h5>{{ cuentaOrigen.numCuenta }}</h5>
                 </div>
             </div>
             <div class="caja_input">
                 <h5>Monto</h5>
                 <div>
-                    <span>S/ 9.00</span>
+                    <span>{{ transferenciaData.monto }}</span>
                 </div>
             </div>
             <div class="caja_input">
                 <h5>Cuenta de destino</h5>
                 <div>
-                    <h4>CASTILLO SANTAMARIA PATRICIA MARGOT</h4>
-                    <h5>191-91842702-0-04</h5>
+                    <h4>{{ cuentaDestino.codCli.nom_cli }} {{ cuentaDestino.codCli.apepat_cli }} {{ cuentaDestino.codCli.apemat_cli }}</h4>
+                    <h5>{{ cuentaDestino.numCuenta }}</h5>
                 </div>
             </div>
             <div class="caja_input">
@@ -91,26 +109,26 @@
 
     </form>
 
-    <div *ngIf="" >
+    <div *ngIf="confirmacion" class="w-100" >
         <div class="resumen_transferencia">        
             <div class="caja_input">
                 <h5>Cuentas de origen</h5>
                 <div>
                     <h4>Cuenta de ahorro</h4>
-                    <h5>191-91842702-0-04</h5>
+                    <h5>{{ cuentaOrigen.numCuenta }}</h5>
                 </div>
             </div>
             <div class="caja_input">
                 <h5>Monto</h5>
                 <div>
-                    <span>S/ 9.00</span>
+                    <span>{{ transferenciaData.monto }}</span>
                 </div>
             </div>
             <div class="caja_input">
                 <h5>Cuenta de destino</h5>
                 <div>
-                    <h4>CASTILLO SANTAMARIA PATRICIA MARGOT</h4>
-                    <h5>191-91842702-0-04</h5>
+                    <h4>{{ cuentaDestino.codCli.nom_cli }} {{ cuentaDestino.codCli.apepat_cli }} {{ cuentaDestino.codCli.apemat_cli }}</h4>
+                    <h5>{{ cuentaDestino.numCuenta }}</h5>
                 </div>
             </div>
             <div class="caja_input">
