@@ -1,11 +1,12 @@
-<h2>Bienvenido Hector Roa!</h2>
+<h2>Bienvenido {{ cliente.nom_cli }} {{ cliente.apepat_cli}} </h2>
 <div class="home_container">
-    <div class="balance">
+    <div *ngFor="let cuenta of cuentasBancarias" class="balance">
         <div class="balance_details">
-            <div class="cuenta">CUENTA PRINCIPAL</div>
+            <div class="cuenta">CUENTA DE {{ cuenta.cod_tipo.nombre | uppercase }}</div>
             <div class="balance_title">Saldo</div>
-            <div class="balance_nrocuenta">441448578111774</div>
+            <div class="balance_nrocuenta">{{ cuenta.numCuenta }}</div>
         </div>
-        <div class="balance_monto">{{ 3556.00 | currency:'USD' }}</div>
+        <div *ngIf="cuenta.cod_tipo.cod_tipo == 1" class="balance_monto">{{ cuenta.saldo | currency:'PEN' }}</div>
+        <div *ngIf="cuenta.cod_tipo.cod_tipo == 2" class="balance_monto">{{ cuenta.saldo | currency:'USD' }}</div>
     </div>
 </div>

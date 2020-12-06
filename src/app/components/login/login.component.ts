@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-//import { FormControl, FormGroup } from '@angular/forms';
+import { FormGroup, NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { AuthModel } from 'src/app/models/auth.model';
+import { cliente } from 'src/app/interfaces/cliente.interface';
 
 
 @Component({
@@ -11,22 +13,16 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  //loginForm: FormGroup;
+  loginForm: FormGroup;
+  auth: AuthModel = new AuthModel();
+  cliente: cliente;
 
   constructor(private router: Router, private authService: AuthService) {
-    //this.loginForm = this.createFormGroup();
-   }
+    
+  }
 
   ngOnInit(): void {
   }
-/*
-
-  createFormGroup() {
-    return new FormGroup({
-      email: new FormControl(''),
-      clave: new FormControl('')
-    });
-  }*/
 
   onFocus(event) {
     let parent = event.srcElement.parentNode.parentNode;
@@ -78,8 +74,22 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  ingresar() {
-    this.router.navigate(['/app/home']);
+  ingresar(login:NgForm) {
+    
+    const { dni, password } = this.auth;
+    this.authService.login(this.auth).subscribe(
+      (data: cliente) => {
+
+        if ( dni == data.dni ) {
+          this.cliente = data;
+          localStorage.setItem("cliente", JSON.stringify(this.cliente));
+          this.router.navigateByUrl("/app/home");
+        } else {
+          console.log("ERROR AL AUTENTICAR")
+        }
+
+      }, (err) => console.log(err)
+    );
   }
-  //prueba
+
 }

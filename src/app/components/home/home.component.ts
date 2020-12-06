@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { cliente } from 'src/app/interfaces/cliente.interface';
+import { AuthService } from 'src/app/services/auth.service';
+import { ClienteService } from 'src/app/services/cliente.service';
+import { CuentaBancaria } from 'src/app/models/cuentas.bancarias';
+
 
 @Component({
   selector: 'app-home',
@@ -7,9 +13,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  cliente: cliente;
+  cuentasBancarias: CuentaBancaria[]
+  constructor(private authService: AuthService, private clienteService: ClienteService, private router: Router) { 
+    if (authService.getCliente() !== null) {
+      this.cliente = JSON.parse(authService.getCliente());
+    
+      clienteService.getCuentasBancarias(this.cliente.cod_cli)
+                .subscribe( (data) => {
+                  
+                  this.cuentasBancarias = data as CuentaBancaria[]
+                  console.log(this.cuentasBancarias);
+                  
+
+                  }, (err) => {
+                    console.log(err);
+                    
+                  }
+                );
+      
+    } else {
+      this.router.navigateByUrl("/login");
+    }
+
+  }
 
   ngOnInit(): void {
   }
+
+
 
 }

@@ -1,4 +1,4 @@
-export interface IAuth {
+export class AuthModel {
     dni: number;
     password: string;
 }
