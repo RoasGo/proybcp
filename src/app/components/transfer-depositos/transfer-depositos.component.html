@@ -29,7 +29,7 @@
                     <span class="cuentas">
                         
                     </span>
-                    <span class="end">$1,309.91</span>
+                    <span class="end">$4,800.91</span>
                 </div>
             </div>
     
@@ -72,7 +72,12 @@
                 </div>
             </div>
             <div class="action-buttons">
-                <a class="btn btn-icono outline">Cancelar</a>
+                <a 
+                    class="btn btn-icono outline"
+                    (click)="cancelar()"
+                >
+                    Cancelar
+                </a>
                 <a class="btn btn-naranja" (click)="verificarDatos()" >Continuar</a>
             </div>
         </div>
@@ -137,7 +142,7 @@
                     <span>110450</span>
                 </div>
             </div>
-            <div class="action-buttons">
+            <div class="action-buttons" (click)="cancelar()" >
                 <a class="btn btn-naranja">Volver</a>
             </div>
         </div>

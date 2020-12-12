@@ -20,4 +20,9 @@ export class NotificacionService {
   generarNotificacion( notificacion: Notificacion ) {
     return this.http.post(this.getEndpoint(`/notificaciones`), notificacion);
   }
+
+  obtenerNotificacion() {
+    return this.http.get(this.getEndpoint(`/notificaciones`));
+  }
+  
 }

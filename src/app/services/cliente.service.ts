@@ -18,4 +18,8 @@ export class ClienteService {
     return this.http.get(this.getEndpoint(`/cuentas/${id}`));
   }
 
+  getCuentaById( id:number ) {
+    return this.http.get(this.getEndpoint(`/cuentas/codigo/${id}`))
+  }
+
 }

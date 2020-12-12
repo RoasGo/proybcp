@@ -37,15 +37,15 @@ export class TransferDepositosComponent implements OnInit {
       this.cliente = JSON.parse( authService.getCliente() );
       
         clienteService.getCuentasBancarias(this.cliente.cod_cli)
-                  .subscribe( (data) => {
+                .subscribe( (data) => {
+                  
+                  this.cuentasBancarias = data as CuentaBancaria[]
+
+                  }, (err) => {
+                    console.log(err);
                     
-                    this.cuentasBancarias = data as CuentaBancaria[]
-  
-                    }, (err) => {
-                      console.log(err);
-                      
-                    }
-                  );
+                  }
+                );
 
     } else {
       this.router.navigateByUrl("/login");
@@ -53,6 +53,10 @@ export class TransferDepositosComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  cancelar() {
+    this.router.navigateByUrl("/app/transfer");
   }
 
   verificarDatos() {
@@ -64,7 +68,8 @@ export class TransferDepositosComponent implements OnInit {
                 this.cuentaDestino.numCuenta = data.numCuenta;
                 this.cuentaDestino.tarjeta = data.tarjeta;
                 this.cuentaDestino.codCli = data.codCli;
-                this.transf = true;
+                console.log(this.transferenciaData);
+                
               }, 
               (err) => {
                 console.log(err);
@@ -92,40 +97,40 @@ export class TransferDepositosComponent implements OnInit {
   realizarTransferencia(transfe:NgForm) {
     this.transferenciaData.cod_tipo = { "cod_tipo": 1 }
     this.transferenciaData.codCuenta = { "cod_cuenta": this.transferenciaData.codCuenta }
-    this.transferenciaData.fecha = new Date('yyyy-MM-dd');
+    this.transferenciaData.fecha = new Date();
     this.transferenciaData.hora = new Date().getTime().toString();
 
     this.tranferenciaService.realizarTransferencia(this.transferenciaData)
-              .subscribe(
-                (data) => {
-                  this.resumen = false;
-                  this.confirmacion = true;
+            .subscribe(
+              (data) => {
+                this.resumen = false;
+                this.confirmacion = true;
 
-                  this.notificacion.titulo = "Transferencia realizada con éxito!";
-                  this.notificacion.estado = 0;
-                  this.notificacion.descripcion = `El monto transferido fue de ${this.transferenciaData.monto}`;
-                  this.notificacion.fecha = this.transferenciaData.fecha;
-                  this.notificacion.hora = this.transferenciaData.hora;
-                  this.notificacion.cod_tipo = { "cod_tipo": 2 };
-                  this.notificacionService.generarNotificacion(this.notificacion)
-                        .subscribe(
-                          (data) => {
-                            console.log("TODO OKAY");
-                            
-                          }, 
-                          (err) => {
-                            console.log(`Error ${err}`);
-                            
-                          }
-                        );
+                this.notificacion.titulo = "Transferencia realizada con éxito!";
+                this.notificacion.estado = 0;
+                this.notificacion.descripcion = `El monto transferido fue de ${this.transferenciaData.monto}`;
+                this.notificacion.fecha = this.transferenciaData.fecha;
+                this.notificacion.hora = this.transferenciaData.hora;
+                this.notificacion.cod_tipo = { "cod_tipo": 2 };
+                this.notificacionService.generarNotificacion(this.notificacion)
+                      .subscribe(
+                        (data) => {
+                          console.log("TODO OKAY");
+                          
+                        }, 
+                        (err) => {
+                          console.log(`Error ${err}`);
+                          
+                        }
+                      );
+              
                 
-                  
-                }, 
-                (err) => {
-                  console.log("Error");
-                  
-                }
-              );
+              }, 
+              (err) => {
+                console.log("Error");
+                
+              }
+            );
     
   }
   

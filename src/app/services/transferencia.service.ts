@@ -29,5 +29,9 @@ export class TransferenciaService {
     return this.http.post(this.getEndpoint(`/transacciones`), transferencia);
   }
 
+  obtenerTranferenciaByCliente(id:number) {
+    return this.http.get(this.getEndpoint(`/transacciones/clientes/${id}`));
+  }
+
 
 }
